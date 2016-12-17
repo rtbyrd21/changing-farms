@@ -737,6 +737,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 				e.preventDefault();
 				return true;
 			}
+			console.log(demoIsRunning);
 
 			// modalScope.modalShown = modalScope.modalShown;
 			var xPos = function(input){
@@ -786,10 +787,13 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 		var demoIndex = 0;
 		var demoArray = [];
 		var endTriggered = false;
+		var firstSelected = false;
 		runDemo = function(frameCount){	
+			demoIsRunning = true;
 			$rootScope.firstSlide = true;
+			var timing = firstSelected ? 60 * 10 : 5 * 10;
 			if(demoIndex < polyParams.length){
-			if(frameCount % (60 * 10) === 0){
+			if(frameCount % (timing) === 0){
 				demoArray.push(demoIndex);
 				demoArray.forEach(function(i, index){
 					hitTracker[index] = true;
@@ -803,6 +807,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 				$rootScope.selectedTextTitle = names[demoIndex];
 				$rootScope.$apply();
 				demoIndex ++;
+				firstSelected = true;
 				}
 				
 			}else{
