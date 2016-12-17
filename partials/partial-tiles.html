@@ -31,29 +31,28 @@
   <p>You’ll be shown aerials of the Hartzold Farm from two different eras. Find the new structures that have been added in the most recent photo. Tap on the building to learn more!</p>
   </div>
 
-  <div ng-if="textDisplay == 1">
-  <p>Click next to compare the 1940 photo of the farm with the 1965 photo.</p>
-  </div>
 
-  <div ng-if="textDisplay == 2">
-  <div ng-if="compareCounter == 0">
+  <div ng-if="textDisplay == 1">
   <h3>Great job!</h3>
   <p>As you can tell, the 1940 and 50s were a time of great expansion for the Hartzold farmstead.</p>
   <p>In 1957 Ed Hartzold and his wife moved out of the family farmhouse to make way for his son, Bob (who was now in charge of the farm) and his new wife Marian. Bob and Marian raised two sons and six daughters here.</p>
   <p>In addition to the 240 acre family farm, Bob rented another 340 acres of farmland. On his land he grew a rotation of corn, soybeans, hay, oats, and occasionally wheat.</p>
   <p>By this time the farm was completely mechanized.  The barn no longer housed horses but the loft was still filled with hay for their cattle.</p>
   </div>
-    <p ng-if="compareCounter == 1">When the visitor taps to continue they will get a screen that encourages them to compare the 1965 photo of the farm with the 1975 photo. The 1965 photo will zip up into the upper left hand corner and the 1965 photo will take center stage.</p>
+
+
+  <div ng-if="textDisplay == 2">
+  <h3>Great job!</h3>
+  <p>Summary of economic and social changes that effected the farm between 1940 and 1965.</p>
   </div>
 
 
   <div ng-if="textDisplay == 3">
-  <div ng-if="compareCounter == 0">
   <h3>Great job!</h3>
   <p>Summary of economic and social changes that effected the farm between 1965 and 1975.</p>
   </div>
-  <p ng-if="compareCounter == 1">When the visitor taps to continue they will get a screen that encourages them to compare the 1975 photo of the farm with the 2010 photo. The 1975 photo will zip up into the upper left hand corner and the 2010 photo will take center stage.</p>
-  </div>
+
+
 
    <div ng-if="textDisplay == 4">
    <div ng-if="compareCounter == 0">
@@ -69,7 +68,8 @@
 
 
   <div class='ng-modal-close' ng-click='hideModal()' ng-if="textDisplay == 0">begin</div>
-  <div class='ng-modal-close' ng-click='compareScreen()' ng-if="textDisplay == 1">next</div>
+  <!-- <div class='ng-modal-close' ng-click='compareScreen()' ng-if="textDisplay == 1">next</div> -->
+  <div class='ng-modal-close' ng-click='compareScreen()' ng-if="textDisplay == 1">continue</div>
   <div class='ng-modal-close' ng-click='swapScreen(1965)' ng-if="textDisplay == 2">continue</div>
   <div class='ng-modal-close' ng-click='swapScreen(1975)' ng-if="textDisplay == 3">continue</div>
   <div class='ng-modal-close' ng-click='returnHome()' ng-if="textDisplay == 4 && compareCounter == 0">continue</div>

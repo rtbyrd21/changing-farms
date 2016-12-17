@@ -111,7 +111,7 @@ body{
 
   background-color: #a3c9ed;
   box-shadow: 4px 4px 80px #000;
-
+  font-family: "Corbel";
 
   /*border-radius: 5px; */
 }
@@ -120,7 +120,7 @@ body{
   /*padding:20px;*/
   text-align: center;
   font-size: 15px;
-  font-family: 'Corbel Regular', 'arial', 'sans-serif';
+  font-family: 'Corbel', 'arial', 'sans-serif';
   padding:20px;
 }
 
@@ -128,6 +128,7 @@ body{
   font-size: 3em;
   margin: 0em 1em;
   font-weight: 100;
+  font-family: 'Corbel', 'arial', 'sans-serif';
 
   }
 
@@ -188,7 +189,7 @@ max-height:100%;
 
 #compareText{
   position: absolute;
-  top: 40%;
+  top: 52%;
   left: 2.5%;
   font-family: 'Poor Richard', 'arial', 'sans-serif';
   text-align: center;
@@ -212,13 +213,18 @@ max-height:100%;
 
 #item-selected{
     background-color: rgba(255,255,255,.75);
-    width: 60%;
+    width: 50%;
     min-height: 17.5vh;
     position: absolute;
-    top: 20px;
-    right: 2.5%;
+    top: 5%;
+    right: 5%;
     z-index: 999;
     box-shadow: 0px 0px 3px black;
     padding: 15px;
+    font-family: "Corbel";
+}
+
+#item-selected h3{
+  margin-top: .25em;
 }
 

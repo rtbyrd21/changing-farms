@@ -35,7 +35,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 				  	$state.go('home').then(function(){
 				  				window.location.reload(true);
 				  			})
-				  }, 1000 * 120);
+				  }, 1000 * 600);
 
 
 				  $(window).on('click', function(e){
@@ -45,7 +45,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 				  				window.location.reload(true);
 				  			})
 
-				  		}, 1000 * 120);
+				  		}, 1000 * 600);
 				  });
 
             }       
@@ -95,7 +95,7 @@ myApp.directive('modalDialog', function($rootScope, $state) {
     	$rootScope.begin = false;
       $rootScope.hideModal = function() {
         scope.show = false;
- 		$rootScope.firstSlide = true;
+ 		// $rootScope.firstSlide = true;
         $rootScope.begin = true;
         var tile = $('.tile')[0];
     	var newEl = $(tile).clone().appendTo($('body'));
@@ -127,22 +127,24 @@ myApp.directive('modalDialog', function($rootScope, $state) {
       };
 
       $rootScope.compareScreen = function() {
-        scope.show = false;
-        $rootScope.firstSlide = false;
+        
+        // $rootScope.firstSlide = false;
         $('.tile').hide();
         $rootScope.minimizeScreen = true;
+        // scope.show = false;
+        scope.show = false;
+        demoIsRunning = false;
+        console.log(scope);
       };
 
       $rootScope.swapScreen = function(year) {
-      	if($rootScope.compareCounter == 1){
       		scope.show = false;
       		if(year == 1965){
       			$rootScope.switchScreen = true;
+
       		}else{
       			$rootScope.switchLastScreen = true;
       		}
-      	}
-      	$rootScope.compareCounter++;
       }
 
       $rootScope.returnHome = function(){
@@ -177,6 +179,8 @@ myApp.directive('nextButton', function($rootScope, $state) {
     link: function(scope, element, attrs) {
     	$(element).on('click', function(){
     		nextClicked = true;
+    		$rootScope.firstSlide = false;
+    		$rootScope.$apply();
     	})
     	
     }
@@ -209,6 +213,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 		var w = 200;
 		var h = 250;
 		var textBoxHeight = 50;
+		var demoIsRunning = true;
 
 
 		p.preload = function() {
@@ -216,13 +221,12 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			gradient = p.loadImage("images/gradient.jpg");	
 			overlay = p.loadImage("images/overlays_01/1.png"); 
 			myFont = p.loadFont('images/POORICH.TTF');
+			corbel = p.loadFont('images/corbel.ttf');
+
 		}
 
 		var canvas;
 		p.setup = function(){
-
-			
-
 			canvas = p.createCanvas(p.windowWidth, (p.windowWidth / 16) * 9);
 		    canvas.parent('sketch-holder');
 			reSetup();
@@ -231,7 +235,11 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 
 		var screenSelected = 0;
+		var silhouettes = [];
 		function reSetup(newDiv, currScreen){
+		  $rootScope.selectedText = false;
+		  $rootScope.firstSlide = false;	
+		  demoIsRunning = false;
 		  var divisor = newDiv ? newDiv : 1;
 		  var currentScreen = currScreen ? currScreen : 0;
 		  screenSelected = currentScreen;
@@ -240,6 +248,8 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 		  barn = [];
 		  barnParams = [];
 		  itemsFound = [];
+		  silhouettes = [];
+
 
 		  
 		  
@@ -453,7 +463,6 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 		  // polyParams = [[[xPos(0),yPos(0)], [xPos(26),yPos(0)], [xPos(52),yPos(21)], [xPos(36.7),yPos(28.9)]]];
 
 		  polyParams = coords[currentScreen]['polyParams'];
-		  console.log(polyParams);
 
 		  barnParams = coords[currentScreen]['barnParams'];
 
@@ -463,7 +472,10 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 		  year = coords[currentScreen]['year'];
 
-
+		  polyParams.forEach(function(item, index){
+		  	silhouettes.push(p.loadImage("images/silhouette_0"+(screenSelected+1)+"/"+(index+1)+".png"));
+		  });
+		  
 
 		  for(var i=0; i<polyParams.length; i++){
 		  	hitTracker[i] = false;
@@ -476,10 +488,10 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 		 }
 
 		 $rootScope.totalItems = poly.length;
-		 console.log($rootScope.totalItems);
 		 $rootScope.itemCount = 0;
 		 $rootScope.$apply();
 
+		  
 
 		 for(var i=0; i<barnParams.length; i++){
 		  	barnParams[i].forEach(function(item, index){
@@ -497,12 +509,12 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			p.background(bg);
 			// p.background(gradient);
 			p.textFont(myFont);
-			p.textSize(30);
-			if(itemsFound.length === 0){
-				p.text(year, 20, 35);
-			}else{
-				p.text(year, 50, 35);
-			}
+
+			// if(itemsFound.length === 0){
+			// 	p.text(year, 20, 35);
+			// }else{
+				
+			// }
 			p.textSize(20);
 			if(itemsFound.length){
 				p.background(overlay);	
@@ -530,22 +542,6 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 				hitTracker[i] = p.collidePointPoly(p.mouseX,p.mouseY,poly[i]);
 			  }
 		   	  
-
-
-			  
-		  //  	  for(i=0; i < barn.length; i++){
-			 //  	p.beginShape();
-			 //  	for(j=0; j < barn[i].length; j++){
-			 //  		if(i == 0){
-			 //  			p.fill(193,10,15,150);
-			 //  			p.vertex(barn[i][j].x,barn[i][j].y);
-			 //  		}else{
-			 //  			p.fill(25,103,4,70);
-			 //  			p.vertex(barn[i][j].x,barn[i][j].y);
-			 //  		}
-				// }
-				// p.endShape(p.CLOSE);
-			 //  }
 
 
 
@@ -579,27 +575,34 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 
 			   itemsFound.forEach(function(item, index){
-			   		p.fill(255, 255, 255, 170);
-			   		p.stroke(255,90,95);
-			   		p.strokeWeight(2);
-			   		// p.ellipse(hitParams[item][0], hitParams[item][1], 20, 20);
-			   		p.textAlign(p.CENTER);
-			   		p.noStroke();
-			   		p.fill(0,0,0,120);
-			   		p.text(names[item], hitParams[item][0] + 1, hitParams[item][1] + 1);
-			   		p.text(names[item], hitParams[item][0] + 1, hitParams[item][1]);
-			   		p.text(names[item], hitParams[item][0], hitParams[item][1] + 1);
-			   		p.text(names[item], hitParams[item][0] - 1, hitParams[item][1] - 1);
-			   		p.fill(255);
-			   		p.text(names[item], hitParams[item][0], hitParams[item][1]);
+			   		if(index !== itemsFound.length -1){
+			   			p.background(silhouettes[item]);
+			   		}else{
+				   		p.fill(255, 255, 255, 170);
+				   		p.stroke(255,90,95);
+				   		p.strokeWeight(2);
+				   		// p.ellipse(hitParams[item][0], hitParams[item][1], 20, 20);
+				   		p.textAlign(p.CENTER);
+				   		p.noStroke();
+				   		p.fill(0,0,0,120);
+				   		p.text(names[item], hitParams[item][0] + 1, hitParams[item][1] + 1);
+				   		p.text(names[item], hitParams[item][0] + 1, hitParams[item][1]);
+				   		p.text(names[item], hitParams[item][0], hitParams[item][1] + 1);
+				   		p.text(names[item], hitParams[item][0] - 1, hitParams[item][1] - 1);
+				   		p.fill(255);
+				   		p.text(names[item], hitParams[item][0], hitParams[item][1]);
+			   		}
 			   		
 			   })
+
+			   p.textSize(30);
+			   p.stroke(0);
+			   p.text(year, 50, 35);
 
 			   if(selectedItemText && checkHits()){
 		   	  	 var width = 200;
 		   	  	 p.noStroke();
 		   	  	 p.fill(255, 255, 255, 200);
-		   	  	 // p.rect(p.mouseX, p.mouseY - (width / 2), width + (width / 10), width + (width / 10));
 		   	  	 var textHeightMapped = p.map(textBoxHeight, 0, 150, 0, 550);
 
 		   	  	 textHeightMapped = (textHeightMapped < 125) ? 125 : textHeightMapped;
@@ -607,13 +610,14 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 		   	  	 var rectYPos = (p.mouseY - (width / 2)) > 0 ? (p.mouseY - (width / 2)) : 0;
 
 		   	  	 rectYPos = (rectYPos + textHeightMapped) > p.height ? rectYPos - ((rectYPos + textHeightMapped) - p.height) : rectYPos;
-
-		   	  // 	 p.rect(p.mouseX, rectYPos, width + (width / 10), textHeightMapped);
-		   	  // 	 p.fill(0);
-			     // p.text(selectedItemText, p.mouseX + (width / 10), rectYPos + 20, width - (width / 10));
 			   }else{
 			   	selectedItemText = null;
 			   }
+
+			if(screenSelected === 0){
+		  		runDemo(p.frameCount);
+		  	}
+			 
 			   			
 
 			   
@@ -634,9 +638,10 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 		function minimizeScreen(){
 			$('#sketch-holder').hide();
 			$('body').css({'background':'url("images/gradient.jpg") no-repeat center center fixed'});
-			$('#counter').css({'color':'black', 'left':'200px'});
+			$('#counter').css({'color':'black', 'left':'22%'});
 			reSetup(1.5, 1);
 			myElement.show();
+			myElement.css({ 'background-image': "url('images/farm_01_complete.jpg')" });
 			bg = p.loadImage("images/farm_02.jpg");	
 			setTimeout(function(){
     			myElement.css({'position':'absolute',
@@ -645,7 +650,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
   					   	'top':'5%',
   					   	 'left': ((5 / 16) * 9) + '%',
   					   	 'margin': '0'});
-    			myElement.append( "<p class='small-date'>1940</p>" );
+    			// myElement.append( "<p class='small-date'>1940</p>" );
     			
     		}, 10);
 
@@ -671,6 +676,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 				if(year == 1965){
 					myElement1.show();
+					myElement1.css({ 'background-image': "url('images/farm_02_complete.jpg')" });
 					myElement1.css({'position':'absolute',
 							   'width': $(window).width() / 1.5,
 							   	'height': (($(window).width() / 16) * 9) / 1.5,
@@ -685,7 +691,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 		  					   	'top':'5%',
 		  					   	 'left': ((5 / 16) * 9) + '%',
 		  					   	 'margin': '0'});
-				myElement1.append( "<p class='small-date'>1965</p>" );
+				// myElement1.append( "<p class='small-date'>1965</p>" );
 		    			
 		    		}, 10);
 		    			
@@ -693,6 +699,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			}else{
 
 				myElement2.show();
+				myElement2.css({ 'background-image': "url('images/farm_03_complete.jpg')" });
 					myElement2.css({'position':'absolute',
 							   'width': $(window).width() / 1.5,
 							   	'height': (($(window).width() / 16) * 9) / 1.5,
@@ -707,7 +714,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 		  					   	'top':'5%',
 		  					   	 'left': ((5 / 16) * 9) + '%',
 		  					   	 'margin': '0'});
-		    				myElement2.append( "<p class='small-date'>1975</p>" );
+		    				// myElement2.append( "<p class='small-date'>1975</p>" );
 		    			
 		    		}, 10);
 		    			
@@ -719,32 +726,28 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 		}
 
 		function goHome(){
-			// myElement.remove();
-			// myElement1.remove();
-			// myElement2.remove();
-			// $('#defaultCanvas0').fadeOut(500);
 			$state.go('home');
 			$state.reload();
-			// setTimeout(function(){
-			// 	// $('.tile').fadeIn(1000);
-			// 	$state.reload();
-			// 	console.log();
-			// 	location.reload();
-			// },500);
 		}
 
 
 		var log =[];
-		p.mousePressed = function(){
+		p.mousePressed = function(e){
+			if(demoIsRunning){
+				e.preventDefault();
+				return true;
+			}
 
-			modalScope.modalShown = modalScope.modalShown;
+			// modalScope.modalShown = modalScope.modalShown;
 			var xPos = function(input){
-		  	return p.map(input, 0, p.windowWidth, 0, 100);
-			  }
-			 var yPos = function(input){
-			  	return p.map(input,  0, (p.windowWidth / 16) * 9, 0, 100);	
-			  }
-			  log.push('[xPos('+xPos(p.mouseX)+'), yPos('+yPos(p.mouseY)+')]')
+		  	  return p.map(input, 0, p.windowWidth, 0, 100);
+			}
+			var yPos = function(input){
+			  return p.map(input,  0, (p.windowWidth / 16) * 9, 0, 100);	
+			 }
+			log.push('[xPos('+xPos(p.mouseX)+'), yPos('+yPos(p.mouseY)+')]')
+
+
 			poly.forEach(function(item, index){
 				if(hitTracker[index]){
 					if(itemsFound.indexOf(index) === -1){
@@ -753,13 +756,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 						$rootScope.$apply();
 					}
 
-					if(itemsFound.length == poly.length){
-						modalScope.show = true;
-						$rootScope.textDisplay++;
-						modalScope.$apply();
-						$rootScope.$apply();
-						itemsFound = [];
-					}
+
 
 					overlay = p.loadImage("images/overlays_0"+(screenSelected+1)+"/"+(index+1)+".png");
 					selectedItemText = polyParams[index][polyParams[index].length - 1];
@@ -769,8 +766,60 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 					words = selectedItemText.split(" ");
  
  					textBoxHeight = words.length;
+
+ 					if(itemsFound.length == poly.length){
+						setTimeout(function(){
+						  $rootScope.firstSlide = false;	
+					      modalScope.show = true;
+						  $rootScope.textDisplay++;
+						  modalScope.$apply();
+						  $rootScope.selectedText = false;
+						  $rootScope.$apply();
+						  itemsFound = [];
+						}, 10000);
+						
+					}
 				}
 			});
+		}
+
+		var demoIndex = 0;
+		var demoArray = [];
+		var endTriggered = false;
+		runDemo = function(frameCount){	
+			$rootScope.firstSlide = true;
+			if(demoIndex < polyParams.length){
+			if(frameCount % (60 * 10) === 0){
+				demoArray.push(demoIndex);
+				demoArray.forEach(function(i, index){
+					hitTracker[index] = true;
+				});
+				itemsFound.push(demoIndex);
+				$rootScope.itemCount = itemsFound.length;
+				overlay = p.loadImage("images/overlays_0"+(screenSelected+1)+"/"+(demoIndex+1)+".png");
+				// overlay = p.loadImage("images/silhouette_0"+(screenSelected+1)+"/"+(demoIndex+1)+".png");
+				selectedItemText = polyParams[demoIndex][polyParams[demoIndex].length - 1];
+				$rootScope.selectedText = selectedItemText;
+				$rootScope.selectedTextTitle = names[demoIndex];
+				$rootScope.$apply();
+				demoIndex ++;
+				}
+				
+			}else{
+				if(!endTriggered){	
+					setTimeout(function(){
+						modalScope.show = true;
+						$rootScope.textDisplay = 1;
+						modalScope.$apply();
+						$rootScope.$apply();
+						selectedItemText = '';
+						itemsFound = [];
+					}, 3000);	
+				endTriggered = true;
+			}
+		}
+			
+
 		}
 
 		p.keyPressed = function(e){
@@ -779,6 +828,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			  modalScope.show = true;
 			  $rootScope.textDisplay = 1;
 			  modalScope.$apply();
+			  $rootScope.selectedText = false;
 			  $rootScope.$apply();
 			  selectedItemText = '';
 			  itemsFound = [];
@@ -787,6 +837,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			  modalScope.show = true;
 			  $rootScope.textDisplay = 2;
 			  modalScope.$apply();
+			  $rootScope.selectedText = false;
 			  $rootScope.$apply();
 			  selectedItemText = '';
 			  itemsFound = [];
@@ -795,6 +846,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			  modalScope.show = true;
 			  $rootScope.textDisplay = 3;
 			  modalScope.$apply();
+			  $rootScope.selectedText = false;
 			  $rootScope.$apply();
 			  selectedItemText = '';
 			  itemsFound = [];
@@ -803,6 +855,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			  modalScope.show = true;
 			  $rootScope.textDisplay = 4;
 			  modalScope.$apply();
+			  $rootScope.selectedText = false;
 			  $rootScope.$apply();
 			  selectedItemText = '';
 			  itemsFound = [];
@@ -810,7 +863,11 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			
 		}
 
-		p.mouseMoved = function(){
+		p.mouseMoved = function(e){
+			if(demoIsRunning){
+				e.preventDefault();
+				return true;
+			}
 			var xPos = function(input){
 		  	return p.map(input, 0, p.windowWidth, 0, 100);
 			  }
