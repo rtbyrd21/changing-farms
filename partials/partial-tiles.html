@@ -11,7 +11,7 @@
 
 <div id="compareText" ng-if="!firstSlide && textDisplay > 0">
 	<h3>Compare the photos</h3>
-	<p>which structures are different?</p>
+	<p>What has changed?</p>
 </div>
 
 <div id="item-selected" ng-if="selectedText">
@@ -23,7 +23,7 @@
 	  <div class="tile" id="{{n}}" full-screen image="{{n}}" ng-repeat="n in [1,2,3,4] track by $index" back-img="images/farm_0{{n}}.jpg"></div>
 </div>
 
-<modal-dialog show='modalShown' width='65%'>
+<modal-dialog show='modalShown' width='42.5%'>
   <div ng-if="textDisplay == 0">
   <h3>How To Play</h3>
   <p>The Hartzold Family has lived in McLean County for X generations, from 19XX to the present. The farmstead seen many changes over the decades that reflect the larger social and economic something of the county.</p>
@@ -34,7 +34,7 @@
 
   <div ng-if="textDisplay == 1">
   <h3>Great job!</h3>
-  <p>As you can tell, the 1940 and 50s were a time of great expansion for the Hartzold farmstead.</p>
+  <p>As you can tell, the 1943 and 50s were a time of great expansion for the Hartzold farmstead.</p>
   <p>In 1957 Ed Hartzold and his wife moved out of the family farmhouse to make way for his son, Bob (who was now in charge of the farm) and his new wife Marian. Bob and Marian raised two sons and six daughters here.</p>
   <p>In addition to the 240 acre family farm, Bob rented another 340 acres of farmland. On his land he grew a rotation of corn, soybeans, hay, oats, and occasionally wheat.</p>
   <p>By this time the farm was completely mechanized.  The barn no longer housed horses but the loft was still filled with hay for their cattle.</p>
@@ -43,13 +43,13 @@
 
   <div ng-if="textDisplay == 2">
   <h3>Great job!</h3>
-  <p>Summary of economic and social changes that effected the farm between 1940 and 1965.</p>
+  <p>Summary of economic and social changes that effected the farm between 1943 and 1968.</p>
   </div>
 
 
   <div ng-if="textDisplay == 3">
   <h3>Great job!</h3>
-  <p>Summary of economic and social changes that effected the farm between 1965 and 1975.</p>
+  <p>Summary of economic and social changes that effected the farm between 1968 and 1975.</p>
   </div>
 
 
@@ -67,14 +67,24 @@
 
 
 
-  <div class='ng-modal-close' ng-click='hideModal()' ng-if="textDisplay == 0">begin</div>
+  <div class='ng-modal-close' ng-click='hideModal()' ng-if="textDisplay == 0">BEGIN</div>
   <!-- <div class='ng-modal-close' ng-click='compareScreen()' ng-if="textDisplay == 1">next</div> -->
-  <div class='ng-modal-close' ng-click='compareScreen()' ng-if="textDisplay == 1">continue</div>
-  <div class='ng-modal-close' ng-click='swapScreen(1965)' ng-if="textDisplay == 2">continue</div>
-  <div class='ng-modal-close' ng-click='swapScreen(1975)' ng-if="textDisplay == 3">continue</div>
+  <div class='ng-modal-close' ng-click='compareScreen()' ng-if="textDisplay == 1"> CONTINUE</div>
+  <div class='ng-modal-close' ng-click='swapScreen(1965)' ng-if="textDisplay == 2">CONTINUE</div>
+  <div class='ng-modal-close' ng-click='swapScreen(1975)' ng-if="textDisplay == 3">CONTINUE</div>
   <div class='ng-modal-close' ng-click='returnHome()' ng-if="textDisplay == 4 && compareCounter == 0">continue</div>
-  <div class='ng-modal-close' ng-click='playAgain()' ng-if="textDisplay == 4 && compareCounter == 1">play again</div>
+  <div class='ng-modal-close' ng-click='playAgain()' ng-if="textDisplay == 4 && compareCounter == 1">PLAY AGAIN</div>
 </modal-dialog>
+
+
+
+<modal-dialog-intro show='introModalShown' width='42.5%'>
+<div>
+  
+  <p>First, explore the 1943 farmstead by touching a building to see what it is used for. The counter in the corner will let you know how you are doing.</p>
+  </div>
+  <div class='ng-modal-close' ng-click='hideIntroModal()'>GOT IT</div>
+</modal-dialog-intro>
 
 
 <!-- <div class="grid-container">
