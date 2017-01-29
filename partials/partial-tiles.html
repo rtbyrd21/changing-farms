@@ -10,13 +10,13 @@
 <div id="next" ng-if="firstSlide" next-button><img src="images/next.png"></div>
 
 <div id="compareText" ng-if="!firstSlide && textDisplay > 0">
-	<h3>Compare the photos</h3>
+	<h3>Compare the photos.</h3>
 	<p>What has changed?</p>
 </div>
 
 <div id="item-selected" ng-if="selectedText">
 	<h3>{{selectedTextTitle}}</h3>
-	{{selectedText}}
+	<p ng-class="{'long': (selectedText.length > 20), 'verylong': (selectedText.length > 350)}">{{selectedText}}</p>
 </div>
 
 <div id="sketch-holder"></div>

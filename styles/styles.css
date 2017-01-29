@@ -159,6 +159,12 @@ body{
     padding: 10px;
     font-family: 'Poor Richard', 'arial', 'sans-serif';
     color:white !important;
+    text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
 }
 .incriment-counter{
   position: absolute;
@@ -166,12 +172,24 @@ body{
   left: -15px;
   text-align: right;
   color:white;
+  text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
 }
 .context-counter{
   position: absolute;
   left: 35px;
   top: 25px;
   color:white;
+  text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
 }
 
 #next{
@@ -198,15 +216,27 @@ max-height:100%;
   text-align: center;
 }
 #compareText h3{
-  font-size: 3em;
+  font-size: 2.5em;
   margin-bottom: 0;
   font-weight: 100;
   color: white;
+   text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
 }
 #compareText p{
-  font-size: 3em;
+  font-size: 2.5em;
   color: white;
   margin-top: 0px;
+   text-shadow:
+       3px 3px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
 }
 
 
@@ -219,7 +249,7 @@ max-height:100%;
 
 #item-selected{
     background-color: rgba(255,255,255,.75);
-    width: 50%;
+    width: 54%;
     min-height: 17.5vh;
     position: absolute;
     top: 5%;
@@ -232,6 +262,10 @@ max-height:100%;
 
 #item-selected h3{
   margin-top: .25em;
+}
+
+#item-selected p.verylong{
+  font-size: .9em;
 }
 
 canvas{

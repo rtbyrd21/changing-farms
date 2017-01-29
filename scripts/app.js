@@ -686,10 +686,10 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			bg = p.loadImage("images/farm_02.jpg");	
 			setTimeout(function(){
     			myElement.css({'position':'absolute',
-  					   'width': $(window).width() / 3.5,
-  					   	'height': (($(window).width() / 16) * 9) / 3.5,
-  					   	'top':'5%',
-  					   	 'left': ((5 / 16) * 9) + '%',
+  					   'width': $(window).width() / 2.9,
+  					   	'height': (($(window).width() / 16) * 9) / 2.9,
+  					   	'top':'2%',
+  					   	 'left': ((2 / 16) * 9) + '%',
   					   	 'margin': '0'});
     			// myElement.append( "<p class='small-date'>1940</p>" );
     			
@@ -701,10 +701,10 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
     			
     			$('#defaultCanvas0').fadeIn(500);
  
-    			canvas = p.createCanvas($(window).width() / 1.6, (($(window).width() / 16) * 9) / 1.6) ;
+    			canvas = p.createCanvas($(window).width() / 1.5, (($(window).width() / 16) * 9) / 1.5) ;
     			$('#defaultCanvas0').css({'position':'absolute',
-    				'top':'30%',
-    				'right': '2.5%'
+    				'bottom':'2%',
+    				'right': '1%'
     				});
 
 		}
@@ -727,8 +727,8 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 					setTimeout(function(){
 		    			myElement1.css({'position':'absolute',
-		  					   'width': $(window).width() / 3.5,
-		  					   	'height': (($(window).width() / 16) * 9) / 3.5,
+		  					   'width': $(window).width() / 3.0,
+		  					   	'height': (($(window).width() / 16) * 9) / 3.0,
 		  					   	'top':'5%',
 		  					   	 'left': ((5 / 16) * 9) + '%',
 		  					   	 'margin': '0'});
@@ -750,8 +750,8 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 					setTimeout(function(){
 		    			myElement2.css({'position':'absolute',
-		  					   'width': $(window).width() / 3.5,
-		  					   	'height': (($(window).width() / 16) * 9) / 3.5,
+		  					   'width': $(window).width() / 3.0,
+		  					   	'height': (($(window).width() / 16) * 9) / 3.0,
 		  					   	'top':'5%',
 		  					   	 'left': ((5 / 16) * 9) + '%',
 		  					   	 'margin': '0'});
