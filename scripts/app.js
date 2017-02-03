@@ -275,12 +275,13 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 		var screenSelected = 0;
 		var silhouettes = [];
+    var currentScreen;
 		function reSetup(newDiv, currScreen){
 		  $rootScope.selectedText = false;
 		  $rootScope.firstSlide = false;	
 		  demoIsRunning = false;
 		  var divisor = newDiv ? newDiv : 1;
-		  var currentScreen = currScreen ? currScreen : 0;
+		  currentScreen = currScreen ? currScreen : 0;
 		  screenSelected = currentScreen;
 		  poly = [];
 		  polyParams = [];
@@ -403,7 +404,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 				  ],
 				
 				'polyParams' : [
-				[[xPos(97.98055347793567), yPos(49.729909415773285)],[xPos(72.5504861630516), yPos(57.3090667331505)],[xPos(67.91323859386686), yPos(54.51674561622205)],[xPos(67.01570680628272), yPos(54.38377794398737)],[xPos(69.3343305908751), yPos(53.45300423834455)],[xPos(71.20418848167539), yPos(51.458489154824235)],[xPos(70.68062827225131), yPos(50.12881243247735)],[xPos(70.0074794315632), yPos(50.92661846588549)],[xPos(68.28721017202693), yPos(51.99035984376299)],[xPos(65.74420344053851), yPos(52.52223053270174)],[xPos(64.84667165295438), yPos(52.12332751599767)],[xPos(64.77187733732237), yPos(53.45300423834455)],[xPos(70.45624532535527), yPos(57.840937422089254)],[xPos(69.4091249065071), yPos(58.106872766558624)],[xPos(69.4091249065071), yPos(59.5695171611402)],[xPos(88.85564697083022), yPos(53.9848749272833)],[xPos(98.27973074046372), yPos(51.325521482589544)], 'The picket fence was constructed by Ed Hartzold’s sons, Joe, Bob, Dick, and Larry.'],	     		  
+        [[xPos(63.56184798807749), yPos(53.783739029640664)],[xPos(63.48733233979136), yPos(51.92912733896341)],[xPos(64.45603576751118), yPos(50.86934923000497)],[xPos(66.9150521609538), yPos(49.67709885742673)],[xPos(68.33084947839046), yPos(50.47193243914555)],[xPos(69.74664679582713), yPos(53.51879450240106)],[xPos(72.65275707898658), yPos(54.7110448749793)],[xPos(75.18628912071536), yPos(53.12137771154165)],[xPos(78.39046199701937), yPos(52.59148865706243)],[xPos(81.29657228017884), yPos(51.13429375724458)],[xPos(83.90461997019374), yPos(49.544626593806925)],[xPos(87.1833084947839), yPos(48.74979301208809)],[xPos(91.35618479880775), yPos(47.557542639509855)],[xPos(94.4113263785395), yPos(47.557542639509855)],[xPos(97.24292101341283), yPos(47.557542639509855)],[xPos(99.18032786885246), yPos(51.399238284484184)],[xPos(90.83457526080477), yPos(56.16823977479716)],[xPos(74.36661698956782), yPos(60.67229673787051)],[xPos(68.25633383010432), yPos(61.46713031958934)],[xPos(63.85991058122206), yPos(55.505878456698134)],[xPos(63.04023845007451), yPos(52.856433184302034)],'The picket fence was constructed by Ed Hartzold’s sons, Joe, Bob, Dick, and Larry.'],
 		  		[[xPos(46.82124158563949), yPos(26.59353444693759)],[xPos(48.24233358264772), yPos(22.870439624366327)],[xPos(49.28945400149588), yPos(21.40779522978476)],[xPos(54.00149588631265), yPos(23.93418100224383)],[xPos(55.57217651458489), yPos(25.529793069060087)],[xPos(56.32011967090501), yPos(27.391340480345715)],[xPos(57.89080029917726), yPos(28.05617884151916)],[xPos(58.1151832460733), yPos(30.050693925039475)],[xPos(52.206432311144354), yPos(33.37488573090667)],[xPos(48.84068810770382), yPos(31.646305991855726)],[xPos(47.793567688855646), yPos(30.44959694174354)],[xPos(47.04562453253553), yPos(30.050693925039475)],[xPos(47.04562453253553), yPos(26.99243746364165)],[xPos(46.74644727000748), yPos(26.59353444693759)], 'Loafing sheds were added to the north and west sides of the barn so that hay could be easily dropped into the sheds from the barn’s loft. Ed Hartzold and his sons fed about 200 heifers (female cattle who have not had calves) per year, along with 25 to 30 steers. When ready, the heifers were bred with Ed’s Angus bull, then sold. The steers also went to market.      With the farm totally mechanized by 1950, the barn no longer housed horses. But Ed and later his son Bob Hartzold still filled the loft with hay for their cattle.'],	
 		  		[[xPos(21.54076290201945), yPos(15.158314634754424)],[xPos(23.63500373971578), yPos(12.764896534530044)],[xPos(26.477187733732237), yPos(13.828637912407546)],[xPos(30.516080777860882), yPos(16.620959029335992)],[xPos(30.516080777860882), yPos(18.482506440621624)],[xPos(26.55198204936425), yPos(20.477021524141943)],[xPos(22.36350037397158), yPos(17.817668079448186)],[xPos(21.54076290201945), yPos(15.291282306989112)],[xPos(21.54076290201945), yPos(14.89237929028505)], 'An additional livestock shed was built so Ed could increase the number of livestock he housed.'],
 		  		[[xPos(51.30890052356021), yPos(72.6003490401396)],[xPos(52.655198204936426), yPos(73.66409041801711)],[xPos(55.123410620792825), yPos(73.13221972907836)],[xPos(55.94614809274495), yPos(72.46738136790492)],[xPos(58.04038893044129), yPos(72.46738136790492)],[xPos(59.012715033657436), yPos(71.6695753344968)],[xPos(59.23709798055348), yPos(67.68054516745616)],[xPos(57.21765145848915), yPos(65.95196542840523)],[xPos(56.69409124906507), yPos(65.95196542840523)],[xPos(54.45026178010471), yPos(67.41460982298678)],[xPos(53.32834704562453), yPos(67.41460982298678)],[xPos(51.15931189229619), yPos(68.87725421756835)],[xPos(51.15931189229619), yPos(70.73880162885399)],[xPos(51.383694839192216), yPos(72.86628438460899)], 'Ed Hartzold paid a bargain price for these WWII surplus grain bins, which were moved from Stanford and used as farrowing houses for their sows.'],
@@ -539,6 +540,26 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 		
 		
 		var selectedItemText;
+
+    var SkipButton = function(){
+      this.xPos = p.width - 100;
+      this.yPos = p.height - 110;
+      this.sceneIndex = 2;
+      this.display = function(){
+        if(currentScreen != 0){
+          this.yPos = p.height - 50;
+        }
+        p.text('next', this.xPos, this.yPos);
+      }
+      this.checkHit = function(mouseX, mouseY, scene){
+        if(p.mouseIsPressed){
+          if(p.dist(mouseX, mouseY, this.xPos, this.yPos) < 70){
+            skipForward(currentScreen + 2);
+          }
+        }
+      }
+    }
+
 		p.draw = function() {
 			p.background(bg);
 			// p.background(gradient);
@@ -549,6 +570,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			// }else{
 				
 			// }
+
 			p.textSize(20);
 			if(itemsFound.length){
 				p.background(overlay);	
@@ -637,6 +659,10 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			   p.textSize(30);
 			   p.stroke(0);
 			   p.text(year, 50, 35);
+         var skip = new SkipButton();
+         skip.display();
+         skip.checkHit(p.mouseX, p.mouseY, 2);
+         
 
 			   if(selectedItemText && checkHits()){
 		   	  	 var width = 200;
@@ -676,6 +702,8 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 		}
 
+    
+    var smallWidth = 2.6;
 		function minimizeScreen(){
 			$('#sketch-holder').hide();
 			$('body').css({'background':'url("images/farm_background.jpg") no-repeat center center fixed'});
@@ -686,8 +714,8 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			bg = p.loadImage("images/farm_02.jpg");	
 			setTimeout(function(){
     			myElement.css({'position':'absolute',
-  					   'width': $(window).width() / 2.9,
-  					   	'height': (($(window).width() / 16) * 9) / 2.9,
+  					   'width': $(window).width() / smallWidth ,
+  					   	'height': (($(window).width() / 16) * 9) / smallWidth ,
   					   	'top':'2%',
   					   	 'left': ((2 / 16) * 9) + '%',
   					   	 'margin': '0'});
@@ -727,10 +755,10 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 					setTimeout(function(){
 		    			myElement1.css({'position':'absolute',
-		  					   'width': $(window).width() / 3.0,
-		  					   	'height': (($(window).width() / 16) * 9) / 3.0,
-		  					   	'top':'5%',
-		  					   	 'left': ((5 / 16) * 9) + '%',
+		  					   'width': $(window).width() / smallWidth ,
+		  					   	'height': (($(window).width() / 16) * 9) / smallWidth ,
+		  					   	'top':'2%',
+		  					   	 'left': ((2 / 16) * 9) + '%',
 		  					   	 'margin': '0'});
 				// myElement1.append( "<p class='small-date'>1965</p>" );
 		    			
@@ -750,10 +778,10 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 					setTimeout(function(){
 		    			myElement2.css({'position':'absolute',
-		  					   'width': $(window).width() / 3.0,
-		  					   	'height': (($(window).width() / 16) * 9) / 3.0,
-		  					   	'top':'5%',
-		  					   	 'left': ((5 / 16) * 9) + '%',
+		  					   'width': $(window).width() / smallWidth ,
+		  					   	'height': (($(window).width() / 16) * 9) / smallWidth ,
+		  					   	'top':'2%',
+		  					   	 'left': ((2 / 16) * 9) + '%',
 		  					   	 'margin': '0'});
 		    				// myElement2.append( "<p class='small-date'>1975</p>" );
 		    			
@@ -825,6 +853,10 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			});
 		}
 
+    p.keyPressed = function(){
+      console.log(log.toString());
+    }
+
 		var demoIndex = 0;
 		var demoArray = [];
 		var endTriggered = false;
@@ -868,9 +900,9 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 		}
 
-		p.keyPressed = function(e){
+		var skipForward = function(scene){
 			console.log(log.toString());
-			if(e.key == '2'){
+			if(scene == '2'){
 			  modalScope.show = true;
 			  $rootScope.textDisplay = 1;
 			  modalScope.$apply();
@@ -879,7 +911,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			  selectedItemText = '';
 			  itemsFound = [];
 			}
-			if(e.key == '3'){
+			if(scene == '3'){
 			  modalScope.show = true;
 			  $rootScope.textDisplay = 2;
 			  modalScope.$apply();
@@ -888,7 +920,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			  selectedItemText = '';
 			  itemsFound = [];
 			}
-			if(e.key == '4'){
+			if(scene == '4'){
 			  modalScope.show = true;
 			  $rootScope.textDisplay = 3;
 			  modalScope.$apply();
@@ -897,7 +929,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			  selectedItemText = '';
 			  itemsFound = [];
 			}
-			if(e.key == '5'){
+			if(scene == '5'){
 			  modalScope.show = true;
 			  $rootScope.textDisplay = 4;
 			  modalScope.$apply();
