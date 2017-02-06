@@ -6,7 +6,7 @@ body{
 }
 
 .col{
-  background: url("../images/farm_background.jpg") no-repeat center center fixed;
+  /*background: url("../images/farm_background.jpg") no-repeat center center fixed;*/
 }
 
 .flex-grid {
