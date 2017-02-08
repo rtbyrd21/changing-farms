@@ -22,7 +22,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
                 p.setup = function(){
 
-                  placeholder = p.createVideo("images/intro_video.mp4");
+                  placeholder = p.createVideo("images/intro_video1.mp4");
                   placeholder.loop();
                   placeholder.hide();
                   placeholder.volume(0);
@@ -32,8 +32,6 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
                 p.draw = function() {
                   p.image(placeholder,0,0,p.width,p.height);
-                  p.textSize(30);
-                  p.text('touch to interact', p.width/2 -100, p.height/2);
 
             };
             p.mousePressed = function(){
