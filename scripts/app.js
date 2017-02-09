@@ -423,7 +423,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 				  'names' : [
 				  	'Picket Fence - built 1948',
-				  	'Loafing Sheds and Barn',
+				  	'Loafing Sheds and Barn -',
 				  	'Livestock Shed - built mid—1950s',
 				  	'Government Surplus Grain Bins - built circa 1950',
 				  	'Machine Shop - built 1957',
