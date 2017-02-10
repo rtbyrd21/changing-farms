@@ -122,7 +122,7 @@ myApp.filter('formatText', function () {
         var text = input.split('-');
         var description = text[1];
 
-        return '<h3>' + text[0] + '</h3><p>' + toTitleCase(description).trim().replace(' ', ': ').recplace("circa", "Circa") + '</p>';
+        return '<h3>' + text[0] + '</h3><p>' + toTitleCase(description).trim().replace(' ', ': ').replace("circa", "Circa") + '</p>';
     }
 });
 
