@@ -122,7 +122,7 @@ myApp.filter('formatText', function () {
         var text = input.split('-');
         var description = text[1];
 
-        return '<h3>' + text[0] + '</h3><p>' + toTitleCase(description).trim().replace(' ', ': ').replace("circa", "Circa") + '</p>';
+        return '<h3>' + text[0] + '</h3><p>' + toTitleCase(description).trim().replace(' ', ': ').replace('Torn: Down', 'Torn Down:').replace("circa", "Circa") + '</p>';
     }
 });
 
@@ -367,7 +367,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 				  	'Barn - built 1918',
 				  	'Milk House - built circa 1818',
 				  	'Corn Crib - built circa 1920',
-				  	'Portable elevator - purchased around 1920',
+				  	'Portable Elevator - purchased around 1920',
 				  	'Chicken House - built circa 1922',
 				  	'Machine Shop - built 1924',
 				  	'Farmhouse - built circa 1860',
@@ -429,7 +429,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 				  	'Machine Shop - built 1957',
 				  	'Garage -',
 				  	'Equipment Storage Shed - built 1957',
-				  	'Silo, auger feeding system, and bunker silo - built 1960 and 1961',
+				  	'Silo, Auger Feeding System, and Bunker silo - built 1960 and 1961',
 				  	'Silage Cutter/Blower and silage weapons - purchased early 1960s',
 				  	'Hay Storage Shed - built early 1960s',
 				  	'Cob Pile -',

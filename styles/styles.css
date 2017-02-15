@@ -194,8 +194,8 @@ body{
 
 #next{
   position: absolute;
-  right: 20px;
-  bottom: 20px;
+  right: 10px;
+  bottom: 5px;
   z-index: 999;
   background-image: url("../images/next.png");
   /*background-color: red;*/
