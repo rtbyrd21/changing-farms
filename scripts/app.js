@@ -315,6 +315,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 		var canvas;
 		p.setup = function(){
+      p.frameRate(120);
 			canvas = p.createCanvas(p.windowWidth, (p.windowWidth / 16) * 9);
 		    canvas.parent('sketch-holder');
 			reSetup();
