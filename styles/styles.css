@@ -5,6 +5,16 @@ body{
   background: url("../images/farm_background.jpg") no-repeat center center fixed;
 }
 
+@font-face {
+  font-family: 'POOR';
+  src: url('../images/POORICH.TTF'); 
+}
+
+@font-face {
+  font-family: 'CORB';
+  src: url('../images/corbel.ttf'); 
+}
+
 .col{
   /*background: url("../images/farm_background.jpg") no-repeat center center fixed;*/
 }
@@ -111,7 +121,7 @@ body{
 
   background-color: #a3c9ed;
   box-shadow: 4px 4px 80px #000;
-  font-family: "Corbel";
+  font-family: "CORB";
 
   /*border-radius: 5px; */
 }
@@ -120,7 +130,7 @@ body{
   /*padding:20px;*/
   text-align: center;
   font-size: 20px;
-  font-family: 'Corbel', 'arial', 'sans-serif';
+  font-family: 'CORB', 'arial', 'sans-serif';
   padding:20px;
 }
 
@@ -128,7 +138,7 @@ body{
   font-size: 3em;
   margin: 0em 1em;
   font-weight: 100;
-  font-family: 'Corbel', 'arial', 'sans-serif';
+  font-family: 'CORB', 'arial', 'sans-serif';
 
   }
 
@@ -157,7 +167,7 @@ body{
     z-index: 9;
     color: white;
     padding: 10px;
-    font-family: 'Poor Richard', 'arial', 'sans-serif';
+    font-family: 'POOR', 'arial', 'sans-serif';
     color:white !important;
     text-shadow:
        3px 3px 0 #000,
@@ -212,7 +222,7 @@ max-height:100%;
   position: absolute;
   top: 52%;
   left: 2.5%;
-  font-family: 'Corbel', 'arial', 'sans-serif';
+  font-family: 'CORB', 'arial', 'sans-serif';
   text-align: center;
 }
 #compareText h3{
@@ -257,7 +267,7 @@ max-height:100%;
     z-index: 999;
     box-shadow: 0px 0px 3px black;
     padding: 15px;
-    font-family: "Corbel";
+    font-family: "CORB";
 }
 
 #item-selected h3{
