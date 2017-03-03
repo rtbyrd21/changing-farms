@@ -5,9 +5,19 @@ body{
   background: url("../images/farm_background.jpg") no-repeat center center fixed;
 }
 
+/**{
+  -webkit-user-select: none; 
+  cursor: default;
+}*/
+
 @font-face {
   font-family: 'POOR';
   src: url('../images/POORICH.TTF'); 
+}
+
+@font-face {
+  font-family: 'HELV';
+  src: url('../images/helvetica.ttf'); 
 }
 
 @font-face {
@@ -167,7 +177,7 @@ body{
     z-index: 9;
     color: white;
     padding: 10px;
-    font-family: 'POOR', 'arial', 'sans-serif';
+    font-family: 'HELV', 'arial', 'sans-serif';
     color:white !important;
     text-shadow:
        3px 3px 0 #000,
@@ -286,4 +296,5 @@ box-shadow: 0px 0px 22px 3px rgba(0,0,0,0.85);
 
 .tile{
   box-shadow: 0px 0px 22px 3px rgba(0,0,0,0.85);
+  margin-top: -3px;
 }
