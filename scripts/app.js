@@ -68,7 +68,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 				  	$state.go('home').then(function(){
 				  				window.location.reload(true);
 				  			})
-				  }, 1000 * 600);
+				  }, 1000 * 30);
 
 
 				  $(window).on('click', function(e){
@@ -78,7 +78,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 				  				window.location.reload(true);
 				  			})
 
-				  		}, 1000 * 600);
+				  		}, 1000 * 30);
 				  });
 
             }       
