@@ -203,7 +203,7 @@ myApp.directive('modalDialog', function($rootScope, $state) {
       };
 
       $rootScope.compareScreen = function() {
-        
+        $rootScope.drawNext = true;
         // $rootScope.firstSlide = false;
         $('.tile').hide();
         $rootScope.minimizeScreen = true;
@@ -214,6 +214,7 @@ myApp.directive('modalDialog', function($rootScope, $state) {
       };
 
       $rootScope.swapScreen = function(year) {
+        $rootScope.drawNext = true;
       		scope.show = false;
       		if(year == 1965){
       			$rootScope.switchScreen = true;
@@ -292,6 +293,7 @@ myApp.directive('nextButton', function($rootScope, $state) {
     link: function(scope, element, attrs) {
     	$(element).on('click', function(){
     		nextClicked = true;
+
     		$rootScope.firstSlide = false;
     		$rootScope.$apply();
     	})
@@ -637,6 +639,10 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 		
 		
 		var selectedItemText;
+    $rootScope.drawNext = true;
+    $rootScope.$on('completedScene', function(){
+      $rootScope.drawNext = false;
+    })
 
     var SkipButton = function(){
       this.xPos = p.width - 100;
@@ -648,19 +654,26 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
         }else{
           this.yPos = p.height - 50;
         }
-        p.textSize(40);
-        p.fill(163,201,237);
-        p.noStroke();
-        p.rect(this.xPos - 17, this.yPos - 32, 100, 50);
-        p.fill(0);
-        p.text('next', this.xPos, this.yPos);
-        p.fill(255);
-        p.text('next', this.xPos - 1, this.yPos - 1);
+        
+
+        if($rootScope.drawNext){
+          p.textSize(40);
+          p.fill(163,201,237);
+          p.noStroke();
+          p.rect(this.xPos - 17, this.yPos - 32, 100, 50);
+          p.fill(0);
+          p.text('next', this.xPos, this.yPos);
+          p.fill(255);
+          p.text('next', this.xPos - 1, this.yPos - 1);
+        }
+        
       }
       this.checkHit = function(mouseX, mouseY, scene){
         if(p.mouseIsPressed){
           if(p.dist(mouseX, mouseY, this.xPos, this.yPos) < 70){
-            skipForward(currentScreen + 2);
+            if($rootScope.drawNext){
+              skipForward(currentScreen + 2);
+            }
           }
         }
       }
@@ -700,6 +713,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			}
 			
 			if(nextClicked){
+        // clearTimeout(triggerEndModal);
 				modalScope.show = true;
 			    $rootScope.textDisplay = 1;
 			    modalScope.$apply();
@@ -974,16 +988,21 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
  
  					textBoxHeight = words.length;
 
+
+
+
+          //bug
  					if(itemsFound.length == poly.length){
+            $rootScope.$broadcast('completedScene');
 						setTimeout(function(){
-						  $rootScope.firstSlide = false;	
-					      modalScope.show = true;
-						  $rootScope.textDisplay++;
-						  modalScope.$apply();
-						  $rootScope.selectedText = false;
-						  $rootScope.$apply();
-						  itemsFound = [];
-						}, 10000);
+              $rootScope.firstSlide = false;  
+              modalScope.show = true;
+              $rootScope.textDisplay++;
+              modalScope.$apply();
+              $rootScope.selectedText = false;
+              $rootScope.$apply();
+              itemsFound = [];
+            }, 10000);
 						
 					}
 				}
