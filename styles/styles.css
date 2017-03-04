@@ -5,10 +5,10 @@ body{
   background: url("../images/farm_background.jpg") no-repeat center center fixed;
 }
 
-/**{
+*{
   -webkit-user-select: none; 
   cursor: default;
-}*/
+}
 
 @font-face {
   font-family: 'POOR';
