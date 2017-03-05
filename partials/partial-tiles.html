@@ -4,7 +4,9 @@
 
 <div id="tile-container">
 
-<div id="counter" ng-if="itemCount >= 0"><span class="incriment-counter" inc-counter="itemCount">{{itemCount}}</span> / 
+<div id="counter" ng-if="itemCount >= 0">
+<p>You have found</p>
+<span class="incriment-counter" inc-counter="itemCount">{{itemCount}}</span> / 
 <span class="context-counter">{{totalItems}}</span></div>
 
 <div id="next" ng-if="firstSlide" next-button><img src="images/next.png"></div>
@@ -28,7 +30,7 @@
 <modal-dialog show='modalShown' width='42.5%'>
   <div ng-if="textDisplay == 0">
   <h3>How to Play</h3>
-  <p>The Hartzold Family has lived on this McLean County farm for five generations, from approximately 1874 to the present. The farmstead has seen many changes over the years. In this activity you will see two aerial images side by side from two different time periods. Compare the photos, and tap on the buildings and areas that look different to learn more.</p>
+  <p>The Hartzold Family has lived on this McLean County farm for five generations, from approximately 1874 to the present. The farmstead has seen many changes over the years. In this activity you will see two aerial images side by side from two different time periods. <b>Compare the photos, and tap on the buildings and areas that look different to learn more.</b></p>
   </div>
 
 

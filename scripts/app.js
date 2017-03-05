@@ -1,5 +1,6 @@
 var myApp = angular.module('myApp',['ui.router']);
 
+// window.addEventListener("contextmenu", function(e) { e.preventDefault(); });
 
 
 myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -68,7 +69,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 				  	$state.go('home').then(function(){
 				  				window.location.reload(true);
 				  			})
-				  }, 1000 * 61);
+				  }, 1000 * 60 * 5);
 
 
 				  $(window).on('click', function(e){
@@ -78,7 +79,7 @@ myApp.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 				  				window.location.reload(true);
 				  			})
 
-				  		}, 1000 * 61);
+				  		}, 1000 * 60 * 5);
 				  });
 
             }       
@@ -393,7 +394,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 				  'names' : [
 				  	'Barn - built 1918',
-				  	'Milk House - built circa 1818',
+				  	// 'Milk House - built circa 1818',
 				  	'Corn Crib - built circa 1920',
 				  	// 'Portable Elevator - purchased around 1920',
 				  	'Chicken House - built circa 1922',
@@ -408,7 +409,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 
 				 'hitParams' : [
 				 	[xPos(34.44338725023787), yPos(36.198329633153605)],
-				 	[xPos(48.43006660323502), yPos(44.82503435881171)],
+				 	// [xPos(48.43006660323502), yPos(44.82503435881171)],
 				 	[xPos(27.783063748810655), yPos(46.00909187017655)],
 				 	// [xPos(20.742150333016173), yPos(49.730415477323184)],
 				 	[xPos(37.96384395813511), yPos(59.372026641294006)],
@@ -425,15 +426,15 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 				
 				'polyParams' : [
 	     		  [[xPos(36.206896551724135), yPos(46.47138796193301)],[xPos(42.992213570634036), yPos(43.70287974292424)],[xPos(42.992213570634036), yPos(37.8692374242986)],[xPos(43.54838709677419), yPos(36.979359782474354)],[xPos(41.601779755283644), yPos(32.92547274749722)],[xPos(40.100111234705224), yPos(31.54121863799283)],[xPos(32.92547274749722), yPos(25.60870102583117)],[xPos(30.978865406006673), yPos(28.179458657767892)],[xPos(28.9210233592881), yPos(33.815350389321466)],[xPos(29.254727474972192), yPos(34.60635273760969)],[xPos(29.199110122358174), yPos(40.637745643307376)],[xPos(36.15127919911012), yPos(46.47138796193301)], 'The barn was used for the storage of hay for feeding livestock, as well as straw for livestock bedding. Ed Hartzold had about 18 cows that he milked in the barn. He also owned 2 to 4 horses that were used for labor and housed in the barn.'],
-            [[xPos(48.24414715719064), yPos(46.3768115942029)],[xPos(50.58528428093646), yPos(46.3768115942029)],[xPos(52.090301003344486), yPos(44.89037532515793)],[xPos(52.090301003344486), yPos(40.28242289111854)],[xPos(50.250836120401345), yPos(38.64734299516908)],[xPos(48.16053511705686), yPos(40.13377926421405)],[xPos(47.74247491638796), yPos(43.701226309921964)], 'The milk house was used to store and cool milk. An expansion of the milk house was underway when this image was taken around 1943. Cream was sent to Bloomington via the Interurban (a rail system between Bloomington and Peoria, and Decatur and Bloomington), which had a stop 1/4 mile north of the farm. The milk, mixed with oats, was fed to the hogs.'],	     		  
+            // [[xPos(48.24414715719064), yPos(46.3768115942029)],[xPos(50.58528428093646), yPos(46.3768115942029)],[xPos(52.090301003344486), yPos(44.89037532515793)],[xPos(52.090301003344486), yPos(40.28242289111854)],[xPos(50.250836120401345), yPos(38.64734299516908)],[xPos(48.16053511705686), yPos(40.13377926421405)],[xPos(47.74247491638796), yPos(43.701226309921964)], 'The milk house was used to store and cool milk. An expansion of the milk house was underway when this image was taken around 1943. Cream was sent to Bloomington via the Interurban (a rail system between Bloomington and Peoria, and Decatur and Bloomington), which had a stop 1/4 mile north of the farm. The milk, mixed with oats, was fed to the hogs.'],	     		  
 
-            [[xPos(25.501672240802677), yPos(38.35005574136009)],[xPos(28.010033444816052), yPos(38.49869936826459)],[xPos(28.595317725752505), yPos(39.539204756596064)],[xPos(28.762541806020064), yPos(40.57971014492754)],[xPos(33.44481605351171), yPos(45.039018952062435)],[xPos(33.44481605351171), yPos(50.390189520624304)],[xPos(27.424749163879596), yPos(52.471200297287254)],[xPos(23.411371237458194), yPos(49.49832775919732)],[xPos(27.591973244147155), yPos(41.917502787068)],[xPos(27.257525083612038), yPos(40.72835377183203)],[xPos(22.240802675585282), yPos(46.97138610182088)],[xPos(21.57190635451505), yPos(47.26867335562987)],[xPos(21.57190635451505), yPos(42.958008175399485)],[xPos(24.91638795986622), yPos(37.9041248606466)], 
+            [[xPos(21.828665568369026), yPos(44.95698334248581)],[xPos(21.746293245469523), yPos(42.467508694856306)],[xPos(25.123558484349257), yPos(37.34211971444261)],[xPos(26.77100494233937), yPos(37.195680029287935)],[xPos(28.665568369028005), yPos(37.48855939959729)],[xPos(30.14827018121911), yPos(40.56379278784551)],[xPos(33.27841845140033), yPos(45.24986271279517)],[xPos(33.52553542009885), yPos(50.22881200805418)],[xPos(28.08896210873147), yPos(53.450485081457074)],[xPos(22.817133443163097), yPos(55.93995972908659)],[xPos(18.69851729818781), yPos(55.35420098846787)],[xPos(17.298187808896213), yPos(51.839648544755626)],[xPos(17.792421746293247), yPos(47.73933736042468)], 
             'The corn crib was used to store ear corn. Above the central driveway there were three storage areas where Ed stored his oats. He also stored equipment in the driveway that ran through the middle of the crib.</br></br>The portable elevator to the left of the crib was used to move the ear corn into the crib after it had been picked with Ed’s one-row picker. It was purchased circa 1920.'], 
             // [[xPos(27.173913043478258), yPos(41.620215533259014)],[xPos(27.424749163879596), yPos(42.214790040877)],[xPos(23.327759197324415), yPos(49.201040505388335)],[xPos(24.74916387959866), yPos(51.13340765514679)],[xPos(23.662207357859533), yPos(53.808992939427725)],[xPos(20.735785953177256), yPos(55.59271646228168)],[xPos(17.474916387959865), yPos(50.68747677443329)],[xPos(18.645484949832774), yPos(48.309178743961354)],[xPos(20.234113712374583), yPos(48.16053511705686)],[xPos(21.73913043478261), yPos(48.60646599777034)],[xPos(23.82943143812709), yPos(46.07952434039391)],[xPos(26.839464882943144), yPos(41.917502787068)], 'Portable elevators were used to move the ear corn into the corn crib after it had been picked with Ed’s one-row picker.'],
 	     		  
             [[xPos(33.11036789297659), yPos(56.187290969899664)],[xPos(33.77926421404682), yPos(53.06577480490524)],[xPos(35.869565217391305), yPos(52.61984392419174)],[xPos(38.62876254180602), yPos(52.61984392419174)],[xPos(43.22742474916388), yPos(58.56558900037161)],[xPos(42.89297658862876), yPos(61.83574879227053)],[xPos(38.54515050167224), yPos(64.06540319583797)],[xPos(32.10702341137124), yPos(66.14641397250092)],[xPos(30.60200668896321), yPos(64.80862133036047)],[xPos(30.68561872909699), yPos(62.578966926793015)],[xPos(33.11036789297659), yPos(60.49795615013006)],[xPos(32.77591973244147), yPos(56.187290969899664)], 'This chicken house was used to house egg-laying hens.'],
             [[xPos(54.18060200668896), yPos(45.039018952062435)],[xPos(55.68561872909699), yPos(47.41731698253437)],[xPos(56.10367892976589), yPos(51.727982162764775)],[xPos(56.10367892976589), yPos(54.552211073950204)],[xPos(50.16722408026756), yPos(57.82237086584912)],[xPos(46.57190635451505), yPos(54.25492382014121)],[xPos(46.48829431438127), yPos(49.944258639910814)],[xPos(47.15719063545151), yPos(47.863247863247864)],[xPos(52.675585284280935), yPos(45.48494983277592)], 'This two story building was constructed to house equipment while it was being repaired. It had a wind charger for generating electricity, as most rural areas of Illinois did not have power lines. But it only worked when there was wind, and did not store electricity.'],
-	     		  [[xPos(65.37421100090171), yPos(60.114217012323415)],[xPos(69.43192064923355), yPos(57.389039174431424)],[xPos(69.43192064923355), yPos(56.58751628093377)],[xPos(71.86654643823263), yPos(55.144775072638005)],[xPos(72.49774571686204), yPos(47.45015529506061)],[xPos(65.91523895401262), yPos(41.67919046187757)],[xPos(63.66095581605049), yPos(44.72497745716862)],[xPos(59.963931469792605), yPos(50.33563771165214)],[xPos(60.054102795311096), yPos(51.7783789199479)],[xPos(60.14427412082958), yPos(54.343252179140364)],[xPos(65.19386834986474), yPos(59.472998697525306)],[xPos(69.25157799819658), yPos(57.86995291053001)], 'The farmhouse existed on the property, along with a summer kitchen, when the land was purchased in 1867. In 1939 — just after electricity reached the farm — a kitchen addition with a second floor room and a porch were added to the house; and the summer kitchen was torn down. The family cooked and ate their meals in the upper story of the machine shop during the construction.'],
+	     		  [[xPos(65.37421100090171), yPos(60.114217012323415)],[xPos(69.43192064923355), yPos(57.389039174431424)],[xPos(69.43192064923355), yPos(56.58751628093377)],[xPos(71.86654643823263), yPos(55.144775072638005)],[xPos(72.49774571686204), yPos(47.45015529506061)],[xPos(65.91523895401262), yPos(41.67919046187757)],[xPos(63.66095581605049), yPos(44.72497745716862)],[xPos(59.963931469792605), yPos(50.33563771165214)],[xPos(60.054102795311096), yPos(51.7783789199479)],[xPos(60.14427412082958), yPos(54.343252179140364)],[xPos(65.19386834986474), yPos(59.472998697525306)],[xPos(69.25157799819658), yPos(57.86995291053001)], 'The farmhouse existed on the property, along with a summer kitchen, when the land was purchased in 1847. In 1939 — just after electricity reached the farm — a kitchen addition with a second floor room and a porch were added to the house; and the summer kitchen was torn down. The family cooked and ate their meals in the upper story of the machine shop during the construction.'],
             
             [[xPos(7.742402315484805), yPos(42.45055475156778)],[xPos(7.452966714905933), yPos(37.04775687409551)],[xPos(8.031837916063676), yPos(34.73227206946454)],[xPos(10.347322720694645), yPos(33.31725357774562)],[xPos(18.37916063675832), yPos(31.130406817816368)],[xPos(20.11577424023155), yPos(33.05997748834218)],[xPos(22.286541244573083), yPos(35.50410033767486)],[xPos(23.733719247467437), yPos(37.176394918797236)],[xPos(23.733719247467437), yPos(39.749155812831646)],[xPos(22.575976845151953), yPos(41.67872648335745)],[xPos(19.971056439942114), yPos(42.19327866216433)],[xPos(17.655571635311144), yPos(43.09374497507638)],[xPos(11.649782923299567), yPos(46.05242000321595)],[xPos(7.525325615050652), yPos(42.5791927962695)], 
             "This shed was used to store planting, cultivating, and harvesting equipment. The addition of a lean to shed on the right side of the machine shed was made circa 1943. It was used for farrowing (birthing) hogs. After the baby hogs were weaned from their mothers, they were moved to a hog lot located east of the timber (upper left corner of image). There, they were fed until they were ready for market. With the help of his sons (Joe, Bob, Dick, and Larry) Ed Hartzold raised between 70 and 80 hogs per year at the time."],
@@ -456,8 +457,8 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 				  'year':'1968',
 
 				  'names' : [
-				  	'Picket Fence - built 1948',
-				  	'Loafing Sheds and Barn -',
+				  	// 'Picket Fence - built 1948',
+				  	// 'Loafing Sheds and Barn -',
 				  	'Livestock Shed - built mid—1950s',
 				  	'Government Surplus Grain Bins - built circa 1950',
 				  	'Machine Shop - built 1957',
@@ -470,12 +471,12 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 				  	'Farrowing Houses - built 1960s',
 				  	'Movable Hog Sheds and Feeders -',
 				  	// 'Milk House -',
-				  	'Chicken House -'
+				  	'Calf Shed -'
 				  ],
 
 				  'hitParams' : [
-				  [xPos(72.21693625118934), yPos(57.84966698382493)],
-				  [xPos(52.80685061845861), yPos(28.07907812665187)],
+				  // [xPos(72.21693625118934), yPos(57.84966698382493)],
+				  // [xPos(52.80685061845861), yPos(28.07907812665187)],
 				  [xPos(25.689819219790678), yPos(15.900200866899251)],
 				  [xPos(55.18553758325404), yPos(70.02854424357756)],
 				  [xPos(63.939105613701244), yPos(48.03890474680198)],
@@ -494,8 +495,8 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 				  ],
 				
 				'polyParams' : [
-        [[xPos(63.56184798807749), yPos(53.783739029640664)],[xPos(63.48733233979136), yPos(51.92912733896341)],[xPos(64.45603576751118), yPos(50.86934923000497)],[xPos(66.9150521609538), yPos(49.67709885742673)],[xPos(68.33084947839046), yPos(50.47193243914555)],[xPos(69.74664679582713), yPos(53.51879450240106)],[xPos(72.65275707898658), yPos(54.7110448749793)],[xPos(75.18628912071536), yPos(53.12137771154165)],[xPos(78.39046199701937), yPos(52.59148865706243)],[xPos(81.29657228017884), yPos(51.13429375724458)],[xPos(83.90461997019374), yPos(49.544626593806925)],[xPos(87.1833084947839), yPos(48.74979301208809)],[xPos(91.35618479880775), yPos(47.557542639509855)],[xPos(94.4113263785395), yPos(47.557542639509855)],[xPos(97.24292101341283), yPos(47.557542639509855)],[xPos(99.18032786885246), yPos(51.399238284484184)],[xPos(90.83457526080477), yPos(56.16823977479716)],[xPos(74.36661698956782), yPos(60.67229673787051)],[xPos(68.25633383010432), yPos(61.46713031958934)],[xPos(63.85991058122206), yPos(55.505878456698134)],[xPos(63.04023845007451), yPos(52.856433184302034)],'The picket fence was constructed by Ed’s sons: Joe, Bob, Dick, and Larry.'],
-		  		[[xPos(46.82124158563949), yPos(26.59353444693759)],[xPos(48.24233358264772), yPos(22.870439624366327)],[xPos(49.28945400149588), yPos(21.40779522978476)],[xPos(54.00149588631265), yPos(23.93418100224383)],[xPos(55.57217651458489), yPos(25.529793069060087)],[xPos(56.32011967090501), yPos(27.391340480345715)],[xPos(57.89080029917726), yPos(28.05617884151916)],[xPos(58.1151832460733), yPos(30.050693925039475)],[xPos(52.206432311144354), yPos(33.37488573090667)],[xPos(48.84068810770382), yPos(31.646305991855726)],[xPos(47.793567688855646), yPos(30.44959694174354)],[xPos(47.04562453253553), yPos(30.050693925039475)],[xPos(47.04562453253553), yPos(26.99243746364165)],[xPos(46.74644727000748), yPos(26.59353444693759)], 'Loafing sheds were added in the 1950s to the north and west sides of the barn so that hay could be easily dropped into the sheds from the barn’s loft. Ed Hartzold and his sons fed about 200 heifers (female cattle who have not had calves) per year, along with 25 to 30 steers. When ready, the heifers were bred with Ed’s Angus bull, then sold.  The steers also went to market. </br></br> With the farm totally mechanized by 1950, the barn no longer housed horses. But Ed, and later his son Bob, still filled the loft with hay for their cattle.'],	
+      //   [[xPos(63.56184798807749), yPos(53.783739029640664)],[xPos(63.48733233979136), yPos(51.92912733896341)],[xPos(64.45603576751118), yPos(50.86934923000497)],[xPos(66.9150521609538), yPos(49.67709885742673)],[xPos(68.33084947839046), yPos(50.47193243914555)],[xPos(69.74664679582713), yPos(53.51879450240106)],[xPos(72.65275707898658), yPos(54.7110448749793)],[xPos(75.18628912071536), yPos(53.12137771154165)],[xPos(78.39046199701937), yPos(52.59148865706243)],[xPos(81.29657228017884), yPos(51.13429375724458)],[xPos(83.90461997019374), yPos(49.544626593806925)],[xPos(87.1833084947839), yPos(48.74979301208809)],[xPos(91.35618479880775), yPos(47.557542639509855)],[xPos(94.4113263785395), yPos(47.557542639509855)],[xPos(97.24292101341283), yPos(47.557542639509855)],[xPos(99.18032786885246), yPos(51.399238284484184)],[xPos(90.83457526080477), yPos(56.16823977479716)],[xPos(74.36661698956782), yPos(60.67229673787051)],[xPos(68.25633383010432), yPos(61.46713031958934)],[xPos(63.85991058122206), yPos(55.505878456698134)],[xPos(63.04023845007451), yPos(52.856433184302034)],'The picket fence was constructed by Ed’s sons: Joe, Bob, Dick, and Larry.'],
+		  		// [[xPos(46.82124158563949), yPos(26.59353444693759)],[xPos(48.24233358264772), yPos(22.870439624366327)],[xPos(49.28945400149588), yPos(21.40779522978476)],[xPos(54.00149588631265), yPos(23.93418100224383)],[xPos(55.57217651458489), yPos(25.529793069060087)],[xPos(56.32011967090501), yPos(27.391340480345715)],[xPos(57.89080029917726), yPos(28.05617884151916)],[xPos(58.1151832460733), yPos(30.050693925039475)],[xPos(52.206432311144354), yPos(33.37488573090667)],[xPos(48.84068810770382), yPos(31.646305991855726)],[xPos(47.793567688855646), yPos(30.44959694174354)],[xPos(47.04562453253553), yPos(30.050693925039475)],[xPos(47.04562453253553), yPos(26.99243746364165)],[xPos(46.74644727000748), yPos(26.59353444693759)], 'Loafing sheds were added in the 1950s to the north and west sides of the barn so that hay could be easily dropped into the sheds from the barn’s loft. Ed Hartzold and his sons fed about 200 heifers (female cattle who have not had calves) per year, along with 25 to 30 steers. When ready, the heifers were bred with Ed’s Angus bull, then sold.  The steers also went to market. </br></br> With the farm totally mechanized by 1950, the barn no longer housed horses. But Ed, and later his son Bob, still filled the loft with hay for their cattle.'],	
 		  		[[xPos(21.54076290201945), yPos(15.158314634754424)],[xPos(23.63500373971578), yPos(12.764896534530044)],[xPos(26.477187733732237), yPos(13.828637912407546)],[xPos(30.516080777860882), yPos(16.620959029335992)],[xPos(30.516080777860882), yPos(18.482506440621624)],[xPos(26.55198204936425), yPos(20.477021524141943)],[xPos(22.36350037397158), yPos(17.817668079448186)],[xPos(21.54076290201945), yPos(15.291282306989112)],[xPos(21.54076290201945), yPos(14.89237929028505)], 'An additional Livestock Shed was built so Ed could increase the number of livestock he housed.'],
 		  		[[xPos(51.30890052356021), yPos(72.6003490401396)],[xPos(52.655198204936426), yPos(73.66409041801711)],[xPos(55.123410620792825), yPos(73.13221972907836)],[xPos(55.94614809274495), yPos(72.46738136790492)],[xPos(58.04038893044129), yPos(72.46738136790492)],[xPos(59.012715033657436), yPos(71.6695753344968)],[xPos(59.23709798055348), yPos(67.68054516745616)],[xPos(57.21765145848915), yPos(65.95196542840523)],[xPos(56.69409124906507), yPos(65.95196542840523)],[xPos(54.45026178010471), yPos(67.41460982298678)],[xPos(53.32834704562453), yPos(67.41460982298678)],[xPos(51.15931189229619), yPos(68.87725421756835)],[xPos(51.15931189229619), yPos(70.73880162885399)],[xPos(51.383694839192216), yPos(72.86628438460899)], 'Ed Hartzold paid a bargain price for these WWII surplus grain bins, which were moved from Stanford and used as farrowing houses for their sows.'],
 		  		[[xPos(64.17352281226627), yPos(52.921133549405795)],[xPos(68.13762154076291), yPos(51.325521482589544)],[xPos(68.13762154076291), yPos(49.331006399069224)],[xPos(68.36200448765894), yPos(49.19803872683454)],[xPos(66.2677636499626), yPos(46.538685282140776)],[xPos(62.67763649962603), yPos(44.145267181916395)],[xPos(60.35901271503366), yPos(47.60242666001828)],[xPos(60.35901271503366), yPos(50.92661846588549)],[xPos(63.87434554973822), yPos(52.655198204936426)], 'A new cement block machine shop was constructed as more space was needed for repair and storage of machinery.'],
@@ -525,7 +526,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 				  	'Calf Sheds -',
 				  	'Hog Houses - built 1970s',
 				  	// 'Hay Baler - purchased late 1970s',
-				  	'Corn Crib - torn down 1973',
+				  	// 'Corn Crib - torn down 1973',
 				  	'Machine Shed - built 1973',
 				  	'Grain Bins and Dryer - built 1974'
 				  ],
@@ -536,7 +537,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
           [xPos(54.80494766888677), yPos(61.57099059097156)],
           [xPos(69.17221693625119), yPos(31.631250660746378)],
           // [xPos(58.896289248334924), yPos(53.2825880114177)],
-          [xPos(46.90770694576594), yPos(49.899566550375305)],
+          // [xPos(46.90770694576594), yPos(49.899566550375305)],
           [xPos(23.882017126546145), yPos(63.769954540649124)],
           [xPos(23.215984776403424), yPos(48.20805581985411)]
 
@@ -549,7 +550,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 	     		  [[xPos(52.4247491638796), yPos(57.079152731326644)],[xPos(57.77591973244147), yPos(58.71423262727611)],[xPos(61.12040133779264), yPos(67.33556298773689)],[xPos(60.11705685618729), yPos(68.07878112225939)],[xPos(58.94648829431438), yPos(67.0382757339279)],[xPos(57.274247491638796), yPos(68.82199925678187)],[xPos(54.4314381270903), yPos(69.71386101820885)],[xPos(51.00334448160535), yPos(67.4842066146414)],[xPos(49.49832775919732), yPos(63.322185061315494)],[xPos(51.83946488294314), yPos(59.45745076179859)],[xPos(51.83946488294314), yPos(57.37643998513564)],[xPos(54.515050167224075), yPos(56.781865477517655)], 'No longer raising calves, Bob tore down the converted chicken houses.'],
             [[xPos(62.70903010033445), yPos(19.769602378298032)],[xPos(67.7257525083612), yPos(18.729096989966553)],[xPos(71.23745819397993), yPos(23.634336677814936)],[xPos(76.67224080267559), yPos(30.471943515421778)],[xPos(75.33444816053512), yPos(33.14752879970271)],[xPos(72.07357859531773), yPos(34.03939056112969)],[xPos(68.81270903010034), yPos(33.29617242660721)],[xPos(65.38461538461539), yPos(28.985507246376812)],[xPos(63.54515050167224), yPos(23.782980304719434)],[xPos(63.54515050167224), yPos(21.701969528056484)], 'Portable A-frame hog houses, used for farrowing and finishing hogs, were constructed in the 1970s as the Hartzolds’ hog business increased. Bob’s sons, Joe and Rod, helped with both the crops and livestock.'],
             // [[xPos(55.51839464882943), yPos(53.66034931252322)],[xPos(56.438127090301), yPos(51.28205128205128)],[xPos(58.27759197324415), yPos(51.28205128205128)],[xPos(60.785953177257525), yPos(51.876625789669276)],[xPos(60.785953177257525), yPos(55.14678558156819)],[xPos(59.19732441471572), yPos(57.52508361204013)],[xPos(56.93979933110368), yPos(57.52508361204013)],[xPos(55.93645484949833), yPos(55.890003716090675)], 'Bob purchased a new baler that made large round bales. He used it for baling straw, which he used for hog bedding.'],
-            [[xPos(42.61939218523879), yPos(50.68338961247789)],[xPos(42.98118668596238), yPos(48.49654285254864)],[xPos(44.06657018813314), yPos(47.210162405531435)],[xPos(46.09261939218524), yPos(46.18105804791767)],[xPos(47.9739507959479), yPos(46.18105804791767)],[xPos(49.63820549927641), yPos(46.56697218202283)],[xPos(50.65123010130246), yPos(49.268371120758964)],[xPos(50.21707670043415), yPos(53.8993407300209)],[xPos(48.33574529667149), yPos(57.50120598166908)],[xPos(46.02026049204052), yPos(58.144396205177685)],[xPos(43.198263386396526), yPos(57.629844026370804)],[xPos(42.11287988422576), yPos(55.185721177038104)],[xPos(41.60636758321273), yPos(51.45521788068821)], 'Because Bob combined his corn and no longer needed to store ear corn, the corn crib was torn down in 1973.'],
+            // [[xPos(42.61939218523879), yPos(50.68338961247789)],[xPos(42.98118668596238), yPos(48.49654285254864)],[xPos(44.06657018813314), yPos(47.210162405531435)],[xPos(46.09261939218524), yPos(46.18105804791767)],[xPos(47.9739507959479), yPos(46.18105804791767)],[xPos(49.63820549927641), yPos(46.56697218202283)],[xPos(50.65123010130246), yPos(49.268371120758964)],[xPos(50.21707670043415), yPos(53.8993407300209)],[xPos(48.33574529667149), yPos(57.50120598166908)],[xPos(46.02026049204052), yPos(58.144396205177685)],[xPos(43.198263386396526), yPos(57.629844026370804)],[xPos(42.11287988422576), yPos(55.185721177038104)],[xPos(41.60636758321273), yPos(51.45521788068821)], 'Because Bob combined his corn and no longer needed to store ear corn, the corn crib was torn down in 1973.'],
             // [[xPos(44.06354515050167), yPos(49.79561501300632)],[xPos(44.06354515050167), yPos(52.17391304347826)],[xPos(45.5685618729097), yPos(53.66034931252322)],[xPos(47.90969899665552), yPos(53.66034931252322)],[xPos(48.66220735785953), yPos(50.68747677443329)],[xPos(48.49498327759198), yPos(49.201040505388335)],[xPos(46.23745819397993), yPos(47.71460423634337)],[xPos(44.565217391304344), yPos(48.45782237086585)], 'Because Bob combined his corn and no longer needed to store ear corn, the corn crib was torn down in 1973.'],
             [[xPos(11.872909698996656), yPos(60.49795615013006)],[xPos(19.230769230769234), yPos(55.890003716090675)],[xPos(26.588628762541806), yPos(57.67372723894463)],[xPos(34.531772575250834), yPos(75.5109624674842)],[xPos(34.531772575250834), yPos(83.68636194723152)],[xPos(18.896321070234116), yPos(86.80787811222594)],[xPos(11.37123745819398), yPos(67.6328502415459)],[xPos(11.538461538461538), yPos(61.241174284652544)], 'A new machine shed was constructed for storing larger equipment. Bob chose this particular brand because it was taller and accommodated larger machinery. He paid $14,000 for the building.'],
 				  [[xPos(24.45290199809705), yPos(55.8198541071995)],[xPos(26.450999048525215), yPos(56.15815625330374)],[xPos(27.97335870599429), yPos(59.033724495189766)],[xPos(30.542340627973356), yPos(58.864573422137646)],[xPos(30.44719314938154), yPos(49.561264404271064)],[xPos(23.882017126546145), yPos(40.59625753250872)],[xPos(21.788772597526165), yPos(38.39729358283117)],[xPos(19.410085632730734), yPos(42.79522148218628)],[xPos(18.458610846812558), yPos(49.053811185114704)],[xPos(18.458610846812558), yPos(53.79004123057406)],[xPos(19.410085632730734), yPos(54.80494766888677)],[xPos(26.64129400570885), yPos(56.49645839940797)],[xPos(27.59276879162702), yPos(58.695422349085526)], 'Bob added on-farm grain storage bins and a grain dryer. By this date, most of the 780 acres (240 owned, 540 rented) was dedicated to corn and soybeans. On-farm storage and drying meant money savings, as well as potentially better profits, without having to pay a fee to store grains at the elevator.']
@@ -724,16 +725,16 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			}
 
 			 
-			 p.noStroke();
-			 p.fill(255,255,255,0);
-			  for(i=0; i < poly.length; i++){
-			  	p.beginShape();
-			  	for(j=0; j < poly[i].length; j++){
-			    	p.vertex(poly[i][j].x,poly[i][j].y);
-				}
-				p.endShape(p.CLOSE);
-				hitTracker[i] = p.collidePointPoly(p.mouseX,p.mouseY,poly[i]);
-			  }
+			 // p.noStroke();
+			 // p.fill(255,255,255,0);
+			 //  for(i=0; i < poly.length; i++){
+			 //  	p.beginShape();
+			 //  	for(j=0; j < poly[i].length; j++){
+			 //    	p.vertex(poly[i][j].x,poly[i][j].y);
+				// }
+				// p.endShape(p.CLOSE);
+				// hitTracker[i] = p.collidePointPoly(p.mouseX,p.mouseY,poly[i]);
+			 //  }
 		   	  
 
 
@@ -813,6 +814,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
          
 
 			   if(selectedItemText && checkHits()){
+
 		   	  	 var width = 200;
 		   	  	 p.noStroke();
 		   	  	 p.fill(255, 255, 255, 200);
@@ -851,7 +853,7 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 		}
 
     
-    var smallWidth = 2.6;
+    var smallWidth = 2.25;
     var largeWidth = 1.6;
 		function minimizeScreen(){
 			$('#sketch-holder').hide();
@@ -956,6 +958,23 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 				return true;
 			}
 			console.log(demoIsRunning);
+
+     //  $.each(hitTracker, function(k, v) {
+     //   if(v == true){
+     //     hitTracker[k]= false;
+     //   }
+     // });
+
+      p.noStroke();
+       p.fill(255,255,255,0);
+        for(i=0; i < poly.length; i++){
+          p.beginShape();
+          for(j=0; j < poly[i].length; j++){
+            p.vertex(poly[i][j].x,poly[i][j].y);
+        }
+        p.endShape(p.CLOSE);
+        hitTracker[i] = p.collidePointPoly(p.mouseX,p.mouseY,poly[i]);
+        }
 
 			// modalScope.modalShown = modalScope.modalShown;
 			var xPos = function(input){
@@ -1102,23 +1121,24 @@ loadCanvas = function(modalScope, $rootScope, myElement, myElement1, myElement2)
 			
 		}
 
-		p.mouseMoved = function(e){
-			if(demoIsRunning){
-				e.preventDefault();
-				return true;
-			}
-			var xPos = function(input){
-		  	return p.map(input, 0, p.windowWidth, 0, 100);
-			  }
-			 var yPos = function(input){
-			  	return p.map(input,  0, (p.windowWidth / 16) * 9, 0, 100);	
-			  }
-			  $.each(hitTracker, function(k, v) {
-				if(v == true){
-					hitTracker[k]= false;
-				}
-			});
-		}
+		// p.mouseMoved = function(e){
+		// 	if(demoIsRunning){
+		// 		e.preventDefault();
+		// 		return true;
+		// 	}
+		// 	var xPos = function(input){
+		//   	return p.map(input, 0, p.windowWidth, 0, 100);
+		// 	  }
+		// 	 var yPos = function(input){
+		// 	  	return p.map(input,  0, (p.windowWidth / 16) * 9, 0, 100);	
+		// 	  }
+		// 	  $.each(hitTracker, function(k, v) {
+		// 		if(v == true){
+		// 			hitTracker[k]= false;
+		// 		}
+		// 	});
+		// }
+    
 
 
 		function isArray(obj){
